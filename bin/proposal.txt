@@ -1,0 +1,111 @@
+=:=:=:=:=:=:=:=:=:=:=:=:=:=:=:=:=:=:=
+CIS 120 Game Project Proposal
+PennKey: _______
+=:=:=:=:=:=:=:=:=:=:=:=:=:=:=:=:=:=:=
+
+===============
+=: Your Game :=
+===============
+
+- What game are you planning to implement? If it is a game of your own design,
+  or not especially well-known, provide a 2-3 sentence description of the game.
+
+I will be implementing Battleship.
+
+- What classes and interfaces do you plan to create? How will the different
+  components of your game (the model, the GUI, etc.) interact?
+
+I will create a ship interface whose subclasses are the different types of battleships (one length
+two ship, two length 3 ships, one length 4 ship, and one length 5 ship). A board class will store a 
+2-D array to represent the board. The board class will store where the battleships are located
+and the locations that the player has already sunk. The board will have a function so that 
+it can be drawn as a J-Component in the GUI 
+
+- What do you think will be the most challenging thing to implement?
+
+I will be implementing a one-player game in which the player plays against an AI. I believe the
+most challenging implementation is implementing th eAI. The AI program should be a reasonable implementation.
+The AI program will randomly search for a location to sink. If the AI program sinks a part of the
+battleship, it should know to sink locations around this coordinate. Also, if the AI finishes sinking
+a ship, it should know to now randomly search for a new coordinate location. Making a reasonable AI
+is probably the most challenging implementation.
+
+====================
+=: Core Concept 1 :=
+====================
+
+Concept 1: 2-D Array
+
+- What specific feature of your game will be implemented using this concept?
+
+A 2-D array will represent the boards that will hold the specific battleships. Each coordinate is based
+on a row-column orientation; for example, (5,3) is on row 5 and column 3. Furthermore, an array will 
+help search a board to find whether all battleships have been sunka nd whether a player has won the 
+game
+
+- Why does it make sense to implement this feature with this concept? Justify
+  why this is a non-trivial application of the concept in question.
+
+An array is appropriate for this particular game because battleships are hidden in a row-column
+arrangement. Additionally, the player and the AI chooses coordinates based on a row-column arrnagement.
+Thus, an array will allow locations to be easily loctrabnle through a row-column orientation of 
+coordinates. Furthermore, searching for whether all battleships have been located will be easily
+implemented if the data structure of the board is an array.
+====================
+=: Core Concept 2 :=
+====================
+
+Concept 2: = Inheritance/Subtyping
+
+- What specific feature of your game will be implemented using this concept?
+
+An inheritance hierarchy with interface Battleship will be used to model the different types of 
+battleships that the player can hide in his board.
+
+- Why does it make sense to implement this feature with this concept? Justify
+  why this is a non-trivial application of the concept in question.
+
+There are five different types of battleships, each of which have similar features except for size. 
+One would not make a generic battleship class because there are different types of battleships a player 
+must use, not one generic battleship. Rather, an interface that highlights certain methods, such as 
+indicating whether a coordinate is a battleship or not, can be used by all different subtypes of battleships. 
+Furthermore, there needs to be different classes of battleships because each battleship has a 
+different size and orientation.
+====================
+=: Core Concept 3 :=
+====================
+
+Concept 3: Search
+
+- What specific feature of your game will be implemented using this concept?
+
+A search algorithm will be implemented to check whether all battleships in the board have been sunk. 
+This would indicate whether a player has won or not. A constant check of this is needed as a coordinate 
+is sunk by the player each turn.
+
+- Why does it make sense to implement this feature with this concept? Justify
+  why this is a non-trivial application of the concept in question.
+
+Without a search algorithm, it will be difficult to check whether the player or the AI has won the game or not. 
+Essentially, the purpose of the game is to see whether a player has sunk all the opposing players’ battleships. 
+This cannot be done unless we have a search algorithm that tells whether the player has won or not.
+
+====================
+=: Core Concept 4 :=
+====================
+
+Concept 4: Testable Component
+
+- What specific feature of your game will be implemented using this concept?
+
+I will test the AI’s ability to reasonably choose coordinates in the game.
+
+- Why does it make sense to implement this feature with this concept? Justify
+  why this is a non-trivial application of the concept in question.
+
+As explained above, I believe the most challenging implementation will be the AI program. 
+The AI program must reasonably choose a coordinate to sink based off of previous coordinates. 
+I will specifically test whether the AI, when it sinks a part of a battleship, 
+makes sure to choose coordinates around this specific coordinate. 
+Otherwise, the AI would not be a reasonable opponent and a reasonable algorithm. 
+A reasonable AI program is essential to whether the game is playable or not.
